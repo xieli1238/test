@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    
+*{
+    padding:0px;
+    margin:0px;
+    font-family:"微软雅黑";
+}
+
+#header
+{
+    height:100px;
+    width: 80%;
+    border:solid 1px blue;
+    margin:10px auto;
+}
+
+#main
+{
+    margin:10px auto;
+    width:80%;
+    height:600px;
+}
+
+.main-left
+{
+   height:600px;
+   width: 19%;
+   float: left;
+   border: solid 1px blue; 
+}
+
+.main-right
+{
+   height:600px;
+   width: 79%;
+   float: right;
+   border: solid 1px blue; 
+}
+
+li{
+   text-align: center;
+   height: 5%;
+   list-style: none;
+   margin:30px 20px; 
+}  
+
+</style>
+</head>
+
+
+<body>      
+   
+<div id="header">
+{{message}}
+</div>
+
+<div id="main">
+
+<div class="main-left" id="left">
+ <ul>
+    <li v-for="todo in todos">
+     {{ todo.text }}
+    </li>
+ </ul>
+</div>
+
+<div class="main-right" id="right">
+  {{message}}
+</div>
+
+</div>
+
+</body>
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+<script type="text/javascript">
+var header = new Vue({
+    el : '#header',
+    data : {
+       message : '头部'       
+    }
+})
+
+var left = new Vue({
+    el : '#left',
+    data : {
+      todos : [
+        { text : '菜单1'},
+        { text : '菜单2'},
+        { text : '菜单3'},
+        { text : '菜单4'},
+        { text : '菜单5'},
+        { text : '菜单6'},
+        { text : '菜单7'},
+      ]
+    }
+})
+
+var right = new Vue({
+    el : '#right',
+    data : {
+        message : '内容'
+    }
+})
+
+</script>
+</html>
